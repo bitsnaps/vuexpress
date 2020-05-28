@@ -1,20 +1,41 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <h2>{{ message }} from express!</h2>
     <HelloWorld msg="Welcome to Your Vue.js"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Vue from 'vue'
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource)
 
 export default {
   name: 'App',
+  data(){
+    return {
+      message: String,
+      default: 'Hi'
+    }
+  },
   components: {
     HelloWorld
   },
   created(){
-    console.log('App.vue just created!')
+      // GET /someUrl
+      this.$http.get('/api/').then(response => {
+
+        // get body data
+        this.message = response.body.message;
+        // console.log('Message: ', this.message)
+
+      }, response => {
+        // error callback
+        console.log('Error: ', response)
+      });
   }
 }
 </script>
