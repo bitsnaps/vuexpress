@@ -1,7 +1,8 @@
-const configureAPI = require('./src/server/configure')
-
 module.exports = {
-  devServer: {
-    before: configureAPI
+  pluginOptions: {
+    express: {
+      shouldServeApp: true,
+      serverDir: './srv'
+    }
   }
 }

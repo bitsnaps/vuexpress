@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js"/>
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
@@ -12,9 +12,6 @@ export default {
   name: 'App',
   components: {
     HelloWorld
-  },
-  created(){
-    console.log('App.vue just created!')
   }
 }
 </script>
